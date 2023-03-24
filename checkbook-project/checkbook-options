@@ -1,0 +1,24 @@
+# Checkbook options.
+# 1) View current balance
+# 2) Record a debit (withdraw)
+# 3) Record a credit (deposit)
+# 4) Exit
+checkbook_options = ("1", "2", "3", "4")
+exit_options = ("y", "n")
+continue_playing = True
+
+
+# while continue_playing:
+
+def main():
+
+# User turn to choose one of the three options.
+    def user_choice():
+        user = None
+        while user not in checkbook_options:
+            user = int(input('What would you like to do: '))
+            print("1) View current balance\n end"
+                    "2) Record a debit (withdraw)\n end"
+                    "3) Record a credit (deposit)\n end"
+                    "4) Exit\n end")
+        return user

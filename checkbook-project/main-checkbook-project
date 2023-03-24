@@ -1,0 +1,80 @@
+# Rosendo Lugo Jr.
+# My checkbook project
+# Create a command line checkbook application that allows users to track their finances with a command line interface.
+
+# A random number is created for the computer choice.
+import random # I would not need this in this project
+
+
+# Checkbook options.
+# 1) View current balance
+# 2) Record a debit (withdraw)
+# 3) Record a credit (deposit)
+# 4) Exit
+checkbook_options = ("1", "2", "3", "4")
+exit_options_2 = ("y", "n")
+continue_playing = True
+
+
+while continue_playing:
+
+    def main():
+        winner()
+
+    # User turn to choose one of the three options.
+    def user_choice():
+        user = None
+        while user not in game_options:
+            user = input('Enter your choice of "Rock", "Paper", or "Scissors": ').lower()
+        return user
+
+    # The computer chooses at random from the three predetermine game options.
+    def computer_choice():
+        computer = random.choice(game_options)
+        print("The computer's selected:", computer)
+        print('')
+        return computer
+
+    # Find the winner based on the user choice and computer choice
+    def winner():
+        champ = True
+        while champ:
+            user = user_choice()
+            computer = computer_choice()
+            if user == computer:
+                print("It's a draw! Play until there is a Winner!")
+            if user == "rock" and computer == "scissors":
+                print("Rock smashes scissors. You WIN!")
+                print("")
+                break
+            elif user == "scissors" and computer == "paper":
+                print("Scissors cuts paper. You WIN!")
+                print("")
+                break
+            elif user == "paper" and computer == "rock":
+                print("Paper wraps rock. You WIN!")
+                print("")
+                break
+            elif computer == "rock" and user == "scissors":
+                print("Rock smashes scissors. The computer WINS!")
+                print("")
+                break
+            elif computer == "scissors" and user == "paper":
+                print("Scissors cuts paper. The computer WINS!")
+                print("")
+                break
+            elif computer == "paper" and user == "rock":
+                print("Paper wraps rock. The computer WINS! ")
+                print("")
+                break
+        return champ
+
+
+    # Call the main function
+    main()
+    play_again = None
+    while play_again not in game_options_2:
+        play_again = input("Do you want to play again? (y/n): ").lower()
+        if not play_again == "y":
+            continue_playing = False
+            print('Thank you for playing!')
