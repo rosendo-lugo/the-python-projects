@@ -1,6 +1,6 @@
 import os 
 import subprocess
-import fastnumbers
+
 
 
 checkbook_options = ('1', '2', '3', '4')
@@ -24,7 +24,7 @@ def user_choice():
 def view_curt_bal():
     with open('current_balance.txt') as cb:
         current_balance = cb.read()
-        print(current_balance)
+        print(f'$',current_balance)
 
 def debit():
     with open('current_balance.txt', 'r') as cb:
@@ -35,9 +35,9 @@ def debit():
 
         #this is your current balance
         print('Current Balance')
-        print(int(current_balance))
+        print(f'$',int(current_balance))
 
-        user = int(input('Enter a number: '))
+        user = int(input('Enter withdraw amount: $'))
 
         new_balance = current_balance - user
 
@@ -46,7 +46,7 @@ def debit():
         with open('current_balance.txt', 'w') as cb:
             cb.write(new_balance)
         #     print(current_balance)
-            print(f'\nNew Balance:', new_balance)
+            print(f'\nNew Balance: $', new_balance)
 
 def credit():
     with open('current_balance.txt', 'r') as cb:
@@ -59,7 +59,7 @@ def credit():
         print('Current Balance')
         print(int(current_balance))
 
-        user = int(input('Enter a number: '))
+        user = int(input('Enter deposit amount: $'))
 
         new_balance = user + current_balance
 
@@ -68,7 +68,7 @@ def credit():
         with open('current_balance.txt', 'w') as cb:
             cb.write(new_balance)
         #     print(current_balance)
-            print(f'\nNew Balance:', new_balance)
+            print(f'\nNew Balance: $', new_balance)
 
 
 while True:
@@ -83,6 +83,6 @@ while True:
         print("Record a credit (deposit)\n")
         credit()
     elif user == '4':
-        print("Exit\n")
+        print("\nThank you, and have a great day!\n")
         break
 
