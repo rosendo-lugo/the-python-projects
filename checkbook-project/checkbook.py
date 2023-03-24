@@ -37,7 +37,14 @@ def debit():
         print('Current Balance')
         print(f'$',int(current_balance))
 
-        user = int(input('Enter withdraw amount: $'))
+        user = input('Enter withdraw amount: $')
+
+        while user.isdigit() == False:
+            print("Invalid choice: ", user)
+            print('')
+            user = input('Enter withdraw amount: $')
+            print('')
+        user = float(user)
 
         new_balance = current_balance - user
 
@@ -47,6 +54,7 @@ def debit():
             cb.write(new_balance)
         #     print(current_balance)
             print(f'\nNew Balance: $', new_balance)
+
 
 def credit():
     with open('current_balance.txt', 'r') as cb:
@@ -59,7 +67,14 @@ def credit():
         print('Current Balance')
         print(int(current_balance))
 
-        user = int(input('Enter deposit amount: $'))
+        user = input('Enter deposit amount: $')
+
+        while user.isdigit() == False:
+            print("Invalid choice: ", user)
+            print('')
+            user = input('Enter deposit amount: $')
+            print('')
+        user = int(user)
 
         new_balance = user + current_balance
 
@@ -83,6 +98,5 @@ while True:
         print("Record a credit (deposit)\n")
         credit()
     elif user == '4':
-        print("\nThank you, and have a great day!\n")
+        print('Thank you, have a great day!')   
         break
-
