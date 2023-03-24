@@ -31,11 +31,11 @@ def debit():
         current_balance = cb.read()
         current_balance.isdigit()
 
-        current_balance = int(current_balance)
+        current_balance = float(current_balance)
 
         #this is your current balance
         print('Current Balance')
-        print(f'$',int(current_balance))
+        print(f'$',float(current_balance))
 
         user = input('Enter withdraw amount: $')
 
@@ -61,11 +61,11 @@ def credit():
         current_balance = cb.read()
         current_balance.isdigit()
 
-        current_balance = int(current_balance)
+        current_balance = float(current_balance)
 
         #this is your current balance
         print('Current Balance')
-        print(int(current_balance))
+        print(float(current_balance))
 
         user = input('Enter deposit amount: $')
 
@@ -74,7 +74,7 @@ def credit():
             print('')
             user = input('Enter deposit amount: $')
             print('')
-        user = int(user)
+        user = float(user)
 
         new_balance = user + current_balance
 
